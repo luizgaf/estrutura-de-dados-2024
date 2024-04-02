@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
                 break;
             }
         }
-        if( num < 1 || num > 2 && num % 2 ==0){
+        if( num < 2 || num > 2 && num % 2 ==0){
             r = 0;
         }
         if( r == 1){
