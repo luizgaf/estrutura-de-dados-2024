@@ -26,3 +26,10 @@ void imprimir_lista(No* H){
         imprimir_lista(H->proximo_no);
     }
 }
+
+int quantidade_nos(No* H){
+    if( H != NULL){
+        return 1 + quantidade_nos(H->proximo_no);
+    }
+    return 0;
+}
