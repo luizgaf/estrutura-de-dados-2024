@@ -4,3 +4,4 @@ typedef struct No{
 }No;
 
 No* no(char valor, No* proximo_no);
+void inserir_no(No* H, No* no);

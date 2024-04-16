@@ -6,4 +6,16 @@ No* no(char valor, No* proximo_no){
     no->valor = valor;
     no->proximo_no = proximo_no;
     return no;
+
+}
+
+void inserir_no(No* H, No* no){
+    if( H != NULL){
+        if( H->proximo_no == NULL){
+            H->proximo_no = no;
+        }
+        else{
+            inserir_no(H->proximo_no, no);
+        }
+    }
 }
