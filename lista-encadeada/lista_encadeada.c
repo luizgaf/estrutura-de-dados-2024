@@ -19,3 +19,10 @@ void inserir_no(No* H, No* no){
         }
     }
 }
+
+void imprimir_lista(No* H){
+    if(H != NULL){
+        printf("%c", H->valor);
+        imprimir_lista(H->proximo_no);
+    }
+}
