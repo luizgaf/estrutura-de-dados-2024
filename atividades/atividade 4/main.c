@@ -3,7 +3,7 @@
 #include "lista.h"
 int main(int argc, char* argv[]){
 
-    No* L = no('A', no('B', no('C', no('D', no('E', no('F', NULL))))));
+    No* L = no('A', no('B', no('C', no('D', no('C', no('C', NULL))))));
     No* L_copia = copiar_lista(L);
 
     char novo_valor='G';
@@ -17,7 +17,7 @@ int main(int argc, char* argv[]){
            lista_verificar_ocorrencias(L_copia, valor_busca));
 
     printf("Inserindo '%c' na posicao %d:\n", novo_valor, pos);
-    lista_inserir_no_i(L_copia, pos);
+    lista_inserir_no_i(L_copia, novo_valor, pos);
 
     printf("Removendo no na posicao %d:\n", 3);
     lista_remover_no_i(L_copia, pos);
