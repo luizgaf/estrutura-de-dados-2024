@@ -45,43 +45,20 @@ void imprimir_lista(No* L){
 }
 
 void lista_imprimir_inversa(No* L){
-    No* lista_invertida = NULL;
-    No* atual = L;
-    while(L!=NULL){
-        No* proximo = atual->proximo_no;
-        atual->proximo_no = lista_invertida;
-        lista_invertida = atual;
-        atual = proximo;
-    }
-    printf("Lista em ordem inversa:\n");
-    while(lista_invertida != NULL){
-        printf("%c ", lista_invertida->valor);
-        lista_invertida = lista_invertida->proximo_no;
-    }
-    atual = NULL;
-    while(lista_invertida != NULL){
-        No* proximo = lista_invertida->proximo_no;
-        lista_invertida->proximo_no = atual;
-        atual = lista_invertida;
-        lista_invertida = proximo;
+    if(L != NULL){
+        lista_imprimir_inversa(L->proximo_no);
+        printf("%c ", L->valor);
     }
 }
 
-void lista_inserir_no_i(No* L, int i){
-    No* novo_no = (No*) malloc(sizeof(No));
-    if(i == 0){
-        novo_no->proximo_no = L;
-        L = novo_no;
-    }
-    else{
-        No* atual = L;
-        int j = 0;
-        while(j < i-1 && atual != NULL){
-            atual = atual->proximo_no;
-            j++;
+void lista_inserir_no_i(No* L,char novo_valor, int i){
+    if(L != NULL){
+        No* atual = NULL;
+        for(int j = 0; j<= i; j++){
+            atual = L;
         }
-        novo_no->proximo_no = atual->proximo_no;
-        atual->proximo_no = novo_no;
+        atual->proximo_no->valor = novo_valor;
+        atual->proximo_no = L;
     }
 
 }
