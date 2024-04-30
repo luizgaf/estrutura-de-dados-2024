@@ -10,12 +10,16 @@ No* no(char valor, No* proximo_no){
 }
 
 void inserir_no(No* H, char valor){
-    if( H != NULL){
-        if( H->proximo_no == NULL){
-            H->proximo_no->valor = valor;
+    if(H != NULL){
+        if(H->proximo_no == NULL){
+            H->proximo_no = no(valor, H);
         }
         else{
-            inserir_no(H->proximo_no, valor);
+            No* tmp = H->proximo_no;
+            while(tmp->proximo_no != H){
+                tmp = tmp->proximo_no;
+            }
+            tmp->proximo_no = no(valor, H);
         }
     }
 }
@@ -23,23 +27,34 @@ void inserir_no(No* H, char valor){
 void imprimir_lista(No* H){
     if(H != NULL){
         printf("%c", H->valor);
-        imprimir_lista(H->proximo_no);
+
+        No* tmp = H->proximo_no;
+        while(tmp != H & tmp != NULL){
+            printf("%c ", tmp->valor);
+            tmp = tmp->proximo_no;
+        }
     }
 }
 
 void remover_no(No* H, char valor){
-    int i;
     if(H != NULL){
-        No* anterior = H;
-        No* atual = H->proximo_no;
-        int pos = 1;
-        while (atual != NULL && pos < i) {
-        anterior = atual;
-        atual = atual->proximo_no;
-        pos++;
-    }
-    anterior->proximo_no = atual->proximo_no;
-    free(atual);
+        No* tmp; 
+        No* tmp_ant;
+
+        tmp     = H->proximo_no;
+        tmp_ant = H;
+
+        while(tmp != H & tmp != NULL){
+            if(tmp->valor == valor){
+                tmp_ant->proximo_no = tmp->proximo_no;
+                free(tmp);
+                tmp = tmp_ant->proximo_no;
+            }
+            else{
+                tmp_ant = tmp;
+                tmp = tmp->proximo_no;
+            }
+        }
     }
 }
 
