@@ -3,15 +3,24 @@
 #include "lc.h"
 
 int main(int argc, char* argv[]){
-    No* H = no('A', no('B', no('C', no('D', no('E', no('F', NULL))))));
 
-    char valor = *argv[1];
+    No* H = no('A', NULL);
+    inserir_no(H, 'B');
+    inserir_no(H, 'C');
+    inserir_no(H, 'K');
+    inserir_no(H, 'P');
 
     imprimir_lista(H);
-    inserir_no(H, valor);
+    printf("\n");
+
+    inserir_no(H, 'L');
     imprimir_lista(H);
-    remover_no(H, valor);
+    printf("\n");
+
+    remover_no(H, 'Y');
     imprimir_lista(H);
+    printf("\n");
+
     liberar_lista(H);
-
+    exit(0);
 }
