@@ -12,10 +12,10 @@ No* no(char valor, No* proximo_no){
 void inserir_no(No* H, char valor){
     if( H != NULL){
         if( H->proximo_no == NULL){
-            H->proximo_no = no;
+            H->proximo_no->valor = valor;
         }
         else{
-            inserir_no(H->proximo_no, no);
+            inserir_no(H->proximo_no, valor);
         }
     }
 }
@@ -28,12 +28,8 @@ void imprimir_lista(No* H){
 }
 
 void remover_no(No* H, char valor){
+    int i;
     if(H != NULL){
-        if(i == 0){
-            No* tmp = H->proximo_no;
-            free(tmp);
-            return;
-        }
         No* anterior = H;
         No* atual = H->proximo_no;
         int pos = 1;
@@ -51,5 +47,6 @@ void liberar_lista(No* H){
     if(H != NULL){
         liberar_lista(H->proximo_no);
         free(H);
+    }
     
 }

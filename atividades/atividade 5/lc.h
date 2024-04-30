@@ -4,7 +4,7 @@ typedef struct No{
 } No;
 
 No* no(char valor, No* proximo_no); 
-inserir_no(No* H, char valor);
-imprimir_lista(No* H);
-remover_no(No* H, char valor);
-liberar_lista(No* H);
+void inserir_no(No* H, char valor);
+void imprimir_lista(No* H);
+void remover_no(No* H, char valor);
+void liberar_lista(No* H);
