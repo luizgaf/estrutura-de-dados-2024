@@ -26,7 +26,7 @@ void inserir_no(No* H, char valor){
 
 void imprimir_lista(No* H){
     if(H != NULL){
-        printf("%c", H->valor);
+        printf("%c ", H->valor);
 
         No* tmp = H->proximo_no;
         while(tmp != H & tmp != NULL){
