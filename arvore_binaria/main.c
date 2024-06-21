@@ -1,22 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "arvore.h"
+#include "tree.h"
 
-int main(){
-    Tree* t = NULL;
-    insertNode(t, 4);
-    insertNode(t, 7);
-    insertNode(t, 6);
-    insertNode(t, 9);
-    insertNode(t, 3);
-    insertNode(t, 2);
-    insertNode(t, 8);
-    insertNode(t, 5);
+int main() {
+    int op, valor;
+    BTree tree;
+    tree.root = NULL;
 
-    searchNode(t, 5);
-    removeNode(t, 5);
+    do{
+        printf("\n0 - sair\n1 - inserir\n2 - imprimir\n");
+        scanf("%d", &op);
 
-    inOrder(t);
-    preOrder(t);
-    postOrder(t);
+        switch(op){
+            case 0:
+                printf("\nSaindo...\n");
+                break;
+
+            case 1:
+                printf("Digite um valor: ");
+                scanf("%d", &valor);
+                inserir(&tree, valor);
+                break;
+
+            case 2:
+                printf("\nImpressao da arvore binaria:\n");
+                imprimir(tree.root);
+                printf("\n");
+                break;
+
+            default: 
+                printf("\nOpcao invalida\n");
+        }
+    }while(op != 0);
 }
