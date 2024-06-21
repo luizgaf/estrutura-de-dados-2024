@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "tree.h"
 
+//Codigo feito e revisado por todos os membros do grupo
+//Luiz Guilherme, Nicole  Dias, Luiz Eduardo Brito, Isabelle Louzada, e Juan Jeronimo
 
 // função para criar nos
 Node* createNode(int data){
