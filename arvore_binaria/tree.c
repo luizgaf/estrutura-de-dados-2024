@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "tree.h"
 
+
+// função para criar nos
 Node* createNode(int data){
     Node* newNode = (Node*)malloc(sizeof(Node));
     if(!newNode){
@@ -13,6 +15,7 @@ Node* createNode(int data){
     return newNode;
 }
 
+// função para inserir nós
 Node* insert(Node* root, int data){
     if(root == NULL){
         root = createNode(data);
@@ -26,6 +29,7 @@ Node* insert(Node* root, int data){
     return root;
 }
 
+// função para procurar nós
 Node* search(Node* root, int data){
     if(root == NULL || root->data == data){
         return root;
@@ -38,6 +42,7 @@ Node* search(Node* root, int data){
     }
 }
 
+// função para achar o menor nó
 Node* findMin(Node* root) {
     while (root->left != NULL) {
         root = root->left;
@@ -45,6 +50,7 @@ Node* findMin(Node* root) {
     return root;
 }
 
+// remover nó
 Node* removeNode(Node* root, int data) {
     if (root == NULL) {
         return root;
@@ -54,24 +60,24 @@ Node* removeNode(Node* root, int data) {
     } else if (data > root->data) {
         root->right = removeNode(root->right, data);
     } else {
-        //
+        // caso nao tenha filhos
         if (root->left == NULL && root->right == NULL) {
             free(root);
             root = NULL;
         }
-        //
+        // caso tenha 1 filho
         else if (root->left == NULL) {
             Node* temp = root;
             root = root->right;
             free(temp);
         } 
-        //
+        // caso tenha um filho
         else if (root->right == NULL) {
             Node* temp = root;
             root = root->left;
             free(temp);
         }
-        //
+        // caso tenha dois filhos
         else {
             Node* temp = findMin(root->right);
             root->data = temp->data;
@@ -81,6 +87,7 @@ Node* removeNode(Node* root, int data) {
     return root;
 }
 
+// in order
 void inOrder(Node* root) {
     if (root != NULL) {
         inOrder(root->left);

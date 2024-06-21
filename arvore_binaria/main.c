@@ -3,7 +3,7 @@
 #include "tree.h"
 
 int main(int argc, char* argv[]) {
-    int num;
+
     Node* root = NULL;
 
     root = insert(root, 50);
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
     postOrder(root);
     printf("\n\n");
 
-    num = atoi(argv[1]);
+    int num = atoi(argv[1]);
 
     Node* foundNode = search(root, num);
     if (foundNode) {
