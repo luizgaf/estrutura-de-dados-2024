@@ -1,13 +1,14 @@
-typedef struct no{
+typedef struct Node {
     int data;
-    struct no *left, *right;
-}No;
+    struct Node* left;
+    struct Node* right;
+} Node;
 
-typedef struct{
-    No *root;
-}BTree;
-
-void inserirEsquerda(No *no, int valor);
-void inserirDireita(No *no, int valor);
-void inserir(BTree *tree, int valor);
-void imprimir(No *root);
+Node* createNode(int data);
+Node* insert(Node* root, int data);
+Node* search(Node* root, int data);
+Node* findMin(Node* root);
+Node* removeNode(Node* root, int data);
+void inOrder(Node* root);
+void preOrder(Node* root);
+void postOrder(Node* root);
